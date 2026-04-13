@@ -1,13 +1,19 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+    Product cucumber = new Product(1, "Cucumber", 12,"Vege");
+    Product picle = new Product(2, "pickle", 12, "Vege");
+    System.out.println(cucumber.equals(picle));
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
-    }
+    Order order1 = new Order("Customer 1");
+    Order order2 = new Order("Customer 2");
+    order1.addProduct(cucumber);
+    order1.addProduct(picle);
+    order1.addProduct(cucumber);
+
+    order2.addProduct(cucumber);
+    order2.addProduct(cucumber);
+    order2.addProduct(cucumber);
+    System.out.println(order2.toString());
+    System.out.println(order2.orderEquals(order1));
 }
