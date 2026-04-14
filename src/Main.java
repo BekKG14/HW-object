@@ -5,15 +5,15 @@ void main() {
     Product picle = new Product(2, "pickle", 12, "Vege");
     System.out.println(cucumber.equals(picle));
 
-    Order order1 = new Order("Customer 1");
-    Order order2 = new Order("Customer 2");
+    Order order1 = new Order("1");
+    Order order2 = new Order("2");
     order1.addProduct(cucumber);
     order1.addProduct(picle);
     order1.addProduct(cucumber);
 
     order2.addProduct(cucumber);
-    order2.addProduct(cucumber);
+    order2.addProduct(picle);
     order2.addProduct(cucumber);
     System.out.println(order2.toString());
-    System.out.println(order2.orderEquals(order1));
+    System.out.println(order2.equals(order1));
 }

@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Order {
     private String customer;
@@ -30,13 +31,15 @@ public class Order {
         return basket;
     }
 
-    public boolean orderEquals(Order order){
-        Product[] order1 = order.getBasket();
-        Product[] order2 = this.getBasket();
-        for (int i = 0; i < basket.length; i++) {
-            if(order1[i] != null && order2[i] != null && !order1[i].equals(order2[i])){
-                return false;
-            }
-        } return true;
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return Objects.equals(customer, order.customer) && Objects.deepEquals(basket, order.basket);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(customer, Arrays.hashCode(basket));
     }
 }
