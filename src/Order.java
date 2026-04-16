@@ -33,14 +33,20 @@ public class Order {
 
     @Override
     public boolean equals(Object o) {
+        if(this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
         Product[] order1 = order.getBasket();
         Product[] order2 = this.getBasket();
+        if(order1 == null && order2 == null) return true;
+        if (order1 == null || order.basket == null) return false;
+
         for (int i = 0; i < basket.length; i++) {
-            if(order1[i] != null && order2[i] != null && !order1[i].equals(order2[i])){
-                return false;
+            if (order1[i] == null && order2[i] == null) continue;
+            if (order1[i] == null || order2 == null) return false;
+            if (!order1[i].equals(order2[i]))return false;
             }
-        } return true;
+        return true;
     }
 
     @Override
