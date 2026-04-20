@@ -5,8 +5,8 @@ void main() {
     Product picle = new Product(2, "pickle", 12, "Vege");
     System.out.println(cucumber.equals(picle));
 
-    Order order1 = new Order("1");
-    Order order2 = new Order("2");
+    Order order1 = new Order("ЛоЛ");
+    Order order2 = new Order("Лол");
     order1.addProduct(cucumber);
     order1.addProduct(picle);
     order1.addProduct(cucumber);
