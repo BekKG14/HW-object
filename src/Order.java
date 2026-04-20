@@ -45,16 +45,17 @@ public class Order {
         Product[] order1 = order.getBasket();
         Product[] order2 = this.getBasket();
 
-        if(order1.length != order2.length){
+        if (!Objects.equals(customer, order.customer)) {
             return false;
         }
+
         if (order1 == null && order2 == null) {
             return true;
         }
         if (order1 == null || order2 == null) {
             return false;
         }
-        if (Objects.equals(customer, order.customer)) {
+        if(order1.length != order2.length){
             return false;
         }
 
@@ -63,7 +64,7 @@ public class Order {
             if (order1[i] == null && order2[i] == null) {
                 continue;
             }
-            if (order1[i] == null || order2 == null) {
+            if (order1[i] == null || order2[i] == null) {
                 return false;
             }
             if (!order1[i].equals(order2[i])) {
